@@ -136,7 +136,7 @@ describe("Test image", () => {
       expect(e.totalErrorCount).to.be.equals(1);
     }
   });
-  it("should check that preReady caculate virtual sizes when there are data prefixes", async () => {
+  it.only("should check that preReady caculate virtual sizes when there are data prefixes", async () => {
     // Given
     el.innerHTML = `
       <img src="https://naver.github.io/egjs-infinitegrid/assets/image/6.jpg" data-width="100" data-height="100" style="width: 100%;"/>
@@ -150,11 +150,14 @@ describe("Test image", () => {
     const fakeSizes = toArray(el.querySelectorAll("img")).map(img => {
       return getSize(img);
     });
+
+    console.log("PRE", el.querySelector("img").style.cssText);
     await waitEvent(im, "ready");
     const realSizes = toArray(el.querySelectorAll("img")).map(img => {
       return getSize(img);
     });
 
+    console.log("SIZE", fakeSizes[0], realSizes[0]);
     // Then
     fakeSizes.forEach(size => {
       expect(size[0]).to.be.equals(size[1]);
