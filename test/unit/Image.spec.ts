@@ -10,11 +10,12 @@ describe("Test image", () => {
   let im: ImReady;
 
   beforeEach(() => {
+    document.body.style.overflow = "hidden";
     im = new ImReady();
     el = sandbox("");
-    el.style.overflow = "hidden";
   });
   afterEach(() => {
+    document.body.style.overflow = "visible";
     im.destroy();
     cleanup();
   });

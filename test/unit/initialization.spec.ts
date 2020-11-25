@@ -3,12 +3,10 @@ import ImReady from "../../src";
 import { cleanup, waitEvent } from "./utils";
 
 describe("Initialization", () => {
-  // let el: HTMLElement;
   let im: ImReady;
 
   beforeEach(() => {
     im = new ImReady();
-    // el = sandbox("");
   });
   afterEach(() => {
     im.destroy();

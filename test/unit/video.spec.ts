@@ -6,10 +6,12 @@ import { toArray, innerWidth, innerHeight } from "../../src/utils";
 declare const viewport: any;
 
 describe("Test video", () => {
+  document.body.style.overflow = "hidden";
   let el: HTMLElement;
   let im: ImReady;
 
   beforeEach(() => {
+    document.body.style.overflow = "visible";
     im = new ImReady();
     el = sandbox("");
     el.style.overflow = "hidden";

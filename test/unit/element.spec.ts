@@ -7,10 +7,12 @@ describe("Test Element", () => {
   let im: ImReady;
 
   beforeEach(() => {
+    document.body.style.overflow = "hidden";
     im = new ImReady();
     el = sandbox("");
   });
   afterEach(() => {
+    document.body.style.overflow = "visible";
     cleanup();
     im.destroy();
   });
